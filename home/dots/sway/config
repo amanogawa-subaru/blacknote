@@ -15,6 +15,12 @@ set $menu wofi --show drun
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 
+# Windows
+bindsym $mod+q kill
+
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
 # Directional focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
