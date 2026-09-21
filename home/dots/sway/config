@@ -1,0 +1,51 @@
+# Blacknote — Sway configuration
+
+# NixOS-provided Sway integration
+include /etc/sway/config.d/*
+
+# UWSM session initialization
+exec uwsm finalize SWAYSOCK
+
+# Applications
+set $mod Mod4
+set $term foot
+set $menu wofi --show drun
+
+# Launchers
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
+
+# Directional focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Directional swapping
+bindsym $mod+Shift+h mark --add "_swap", focus left, swap container with mark "_swap", focus left, unmark "_swap"
+bindsym $mod+Shift+j mark --add "_swap", focus down, swap container with mark "_swap", focus down, unmark "_swap"
+bindsym $mod+Shift+k mark --add "_swap", focus up, swap container with mark "_swap", focus up, unmark "_swap"
+bindsym $mod+Shift+l mark --add "_swap", focus right, swap container with mark "_swap", focus right, unmark "_swap"
+
+# Workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+
+# Session controls
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec uwsm stop
