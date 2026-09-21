@@ -1,4 +1,4 @@
-{ username, ... }:
+{ username, pkgs, ... }:
 
 {
   imports = [
@@ -18,5 +18,15 @@
     users.${username}.imports = [
       ./home
     ];
+  };
+
+  # Stylix sets gruvbox theme
+  stylix = {
+    enable = true;
+
+    base16Scheme = 
+      "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+
+    targets.regreet.enable = false;
   };
 }
