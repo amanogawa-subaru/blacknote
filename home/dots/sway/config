@@ -22,6 +22,19 @@ bindsym $mod+q kill
 bindsym $mod+g splith
 bindsym $mod+v splitv
 
+# Resize mode
+set $resize_mode "resize"
+bindsym $mod+r mode $resize_mode
+mode $resize_mode {
+    bindsym h resize shrink width 10 px
+    bindsym j resize grow height 10 px
+    bindsym k resize shrink height 10 px
+    bindsym l resize grow width 10 px
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
 # Directional focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
