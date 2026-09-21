@@ -10,7 +10,7 @@
     nixosModules.default = {
       imports = [
         home-manager.nixosModules.home-manager
-        stylix.nixosModules.stylix
+        #stylix.nixosModules.stylix
         ./default.nix
       ];
     };
