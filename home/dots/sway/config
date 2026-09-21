@@ -47,5 +47,5 @@ bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
 
 # Session controls
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+e exec uwsm stop
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+q exec uwsm stop
