@@ -11,6 +11,10 @@
 
     # UWSM owns graphical-session lifecycle.
     systemd.enable = false;
+
+    extraConfig = ''
+      exec uwsm finalize SWAYSOCK
+    '';
   };
 
   programs.foot.enable = true;
