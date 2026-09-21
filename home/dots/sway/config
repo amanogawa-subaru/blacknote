@@ -14,11 +14,12 @@ set $menu wofi --show drun
 # Launchers
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
+bindsym $mod+b exec librewolf
 
 # Windows
 bindsym $mod+q kill
 
-bindsym $mod+b splith
+bindsym $mod+g splith
 bindsym $mod+v splitv
 
 # Directional focus
@@ -51,6 +52,16 @@ bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
+
+# Touchpad gestures
+input type:touchpad {
+    natural_scroll enabled
+    tap enabled
+    tap_button_map lrm
+}
+
+bindgesture swipe:3:left workspace next
+bindgesture swipe:3:right workspace prev
 
 # Session controls
 bindsym $mod+Shift+r reload
