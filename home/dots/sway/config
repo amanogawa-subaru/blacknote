@@ -35,7 +35,7 @@ set $base0F #d65d0e
 
 # Sway colors
 # Window state            border     bg         text       indicator  child_border
-client.focused            $base0D    $base00    $base06    $base0D    $base0D
+client.focused            $base09    $base00    $base06    $base09    $base09
 client.focused_inactive   $base02    $base00    $base04    $base02    $base02
 client.unfocused          $base01    $base00    $base03    $base01    $base01
 client.urgent             $base08    $base00    $base07    $base08    $base08
