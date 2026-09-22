@@ -1,4 +1,4 @@
-{ config, username, ... }:
+{ config, pkgs, username, ... }:
 
 {
   home.username = username;
@@ -32,7 +32,27 @@
         "${config.home.homeDirectory}/nixos-profiles/blacknote/home/dots/wofi/style.css";
   };
 
-   # Applications 
+  # Graphical Polkit authentication agent
+  systemd.user.services.polkit-agent = {
+    Unit = {
+      Description = "Blacknote Polkit authentication agent";
+
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      Type = "simple";
+
+      ExecStart = "${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent";
+      Restart = "on-failure";
+      RestartSec = 2;
+    };
+
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+
+  # Applications 
   programs.foot = {
     enable = true;
 

@@ -70,6 +70,7 @@ bindsym $mod+o layout toggle split
 
 # Floating apps
 for_window [app_id="imv"] floating enable, move position center
+for_window [title="^Authentication Required$"] floating enable, move position center
 
 # Resize mode
 set $resize_mode "resize"
