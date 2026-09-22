@@ -5,7 +5,8 @@
   "spacing": 8,
 
   "modules-left": [
-    "sway/workspaces"
+    "sway/workspaces",
+    "sway/mode"
   ],
 
   "modules-right": [
@@ -26,6 +27,11 @@
       "4": [],
       "5": []
     }
+  },
+
+  "sway/mode": {
+    "format": "{}",
+    "tooltip": false
   },
 
   "tray": {
