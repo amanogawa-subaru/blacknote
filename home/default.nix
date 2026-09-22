@@ -1,6 +1,10 @@
 { config, pkgs, username, ... }:
 
 {
+  imports = [
+    ./appearance.nix
+  ];
+
   home.username = username;
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "26.05";
@@ -101,14 +105,5 @@
       "before-sleep" = "${pkgs.swaylock}/bin/swaylock -f";
       "lock" = "${pkgs.swaylock}/bin/swaylock -f";
     };
-  };
-
-  # Themes that will be handled separately
-  stylix.targets = {
-    firefox.enable = false;
-    librewolf.enable = false;
-    sway.enable = false;
-    waybar.enable = false;
-    wofi.enable = false;
   };
 }
