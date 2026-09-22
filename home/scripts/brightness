@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+min=10
+step=1
+
+current=$(brightnessctl -c backlight -m | cut -d, -f4 | tr -d '%')
+
+case "$1" in
+    up)
+        new=$((current + step))
+        ;;
+    down)
+        new=$((current - step))
+        ;;
+    *)
+        exit 1
+        ;;
+esac
+
+(( new < min )) && new=$min
+(( new > 100 )) && new=100
+
+brightnessctl -q -c backlight set "${new}%"

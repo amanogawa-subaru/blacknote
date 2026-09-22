@@ -12,9 +12,10 @@
   "modules-right": [
     "tray",
     "network",
+    "backlight",
     "wireplumber",
-    "clock",
     "battery",
+    "clock",
     "custom/power"
   ],
 
@@ -46,6 +47,21 @@
     "tooltip": true
   },
 
+  "backlight": {
+    "format": "{percent} {icon}",
+
+    "format-icons": [
+      "󰃞 ",
+      "󰃟 ",
+      "󰃠 "
+    ],
+
+    "on-scroll-up": "$HOME/nixos-profiles/blacknote/home/scripts/brightness up",
+    "on-scroll-down": "$HOME/nixos-profiles/blacknote/home/scripts/brightness down",
+
+    "tooltip": false
+  },
+
   "wireplumber": {
     "format": "{volume} {icon}",
     "format-muted": "󰖁",
@@ -59,11 +75,6 @@
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 
     "tooltip": true
-  },
-
-  "clock": {
-    "format": "{:%H:%M}",
-    "tooltip-format": "{:%Y-%m-%d}"
   },
 
   "battery": {
@@ -89,6 +100,11 @@
       "󰂂",
       "󰁹"
     ]
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "{:%Y-%m-%d}"
   },
 
   "custom/power": {
