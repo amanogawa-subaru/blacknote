@@ -25,7 +25,13 @@
   };
 
    # Applications 
-  programs.foot.enable = true;
+  programs.foot = {
+    enable = true;
+
+    settings.main.include = 
+      "${config.home.homeDirectory}/nixos-profiles/blacknote/home/dots/foot/blacknote.ini";
+  };
+
   programs.wofi.enable = true;
 
   programs.waybar = {
