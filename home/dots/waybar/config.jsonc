@@ -1,0 +1,93 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 8,
+
+  "modules-left": [
+    "sway/workspaces"
+  ],
+
+  "modules-right": [
+    "tray",
+    "network",
+    "wireplumber",
+    "clock",
+    "battery",
+    "custom/power"
+  ],
+
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    }
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+
+  "network": {
+    "format-wifi": "{essid}",
+    "format-ethernet": "Ethernet",
+    "format-disconnected": "Offline",
+    "tooltip": true
+  },
+
+  "wireplumber": {
+    "format": "{volume} {icon}",
+    "format-muted": "󰖁",
+
+    "format-icons": [
+      "",
+      "",
+      ""
+    ],
+
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+
+    "tooltip": true
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "{:%Y-%m-%d}"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+
+    "format": "{capacity} {icon}",
+    "format-charging": "{capacity} 󰂄",
+    "format-plugged": "{capacity} 󰂄",
+    "format-full": "{capacity} 󰁹",
+
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "blacknote-power"
+  }
+}
