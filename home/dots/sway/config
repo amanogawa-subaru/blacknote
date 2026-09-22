@@ -3,24 +3,72 @@
 # NixOS-provided Sway integration
 include /etc/sway/config.d/*
 
-# UWSM session initialization
+# --- UWSM session initialization ---
 exec uwsm finalize SWAYSOCK
 
-# Applications
+# --- Set variables ---
 set $mod Mod4
 set $term foot
 set $menu wofi --show drun
+set $sway_dir $HOME/nixos-profiles/blacknote/home/dots/sway
 
-# Launchers
+# --- Appearance ---
+
+# Gruvbox colors
+set $base00 #282828
+set $base01 #3c3836
+set $base02 #504945
+set $base03 #665c54
+set $base04 #bdae93
+set $base05 #d5c4a1
+set $base06 #ebdbb2
+set $base07 #fbf1c7
+
+set $base08 #fb4934
+set $base09 #fe8019
+set $base0A #fabd2f
+set $base0B #b8bb26
+set $base0C #8ec07c
+set $base0D #83a598
+set $base0E #d3869b
+set $base0F #d65d0e
+
+# Sway colors
+# Window state            border     bg         text       indicator  child_border
+client.focused            $base0D    $base00    $base06    $base0D    $base0D
+client.focused_inactive   $base02    $base00    $base04    $base02    $base02
+client.unfocused          $base01    $base00    $base03    $base01    $base01
+client.urgent             $base08    $base00    $base07    $base08    $base08
+
+# Gaps
+gaps inner 10
+gaps outer 10
+
+# Set wallpaper
+output * bg $sway_dir/wallpapers/gruvbox_grid.png fill
+
+# --- Launchers ---
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+b exec librewolf
 
-# Windows
+# --- Window manipulation ---
 bindsym $mod+q kill
 
-bindsym $mod+g splith
-bindsym $mod+v splitv
+bindsym $mod+v splith
+bindsym $mod+g splitv
+
+bindsym $mod+f floating toggle
+bindsym $mod+Shift+f fullscreen
+
+# Control windows with mod+mouse
+floating_modifier $mod normal
+
+# Toggle split orientation
+bindsym $mod+o layout toggle split
+
+# Floating apps
+for_window [app_id="imv"] floating enable, move position center
 
 # Resize mode
 set $resize_mode "resize"
