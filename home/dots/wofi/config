@@ -1,0 +1,7 @@
+width=500
+height=350
+location=center
+prompt=Search
+allow_markup=true
+insensitive=true
+term=foot

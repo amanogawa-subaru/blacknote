@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+lock="󰌾  Lock"
+suspend="󰤄  Suspend"
+logout="󰍃  Logout"
+reboot="󰜉  Reboot"
+poweroff="󰐥  Power off"
+
+choice="$(
+    printf '%s\n' \
+        "$lock" \
+        "$suspend" \
+        "$logout" \
+        "$reboot" \
+        "$poweroff" |
+        wofi --dmenu --prompt "Power"
+)"
+
+case "$choice" in
+    "$lock")
+        swaylock
+        ;;
+    "$suspend")
+        systemctl suspend
+        ;;
+    "$logout")
+        loginctl terminate-session "$XDG_SESSION_ID"
+        ;;
+    "$reboot")
+        systemctl reboot
+        ;;
+    "$poweroff")
+        systemctl poweroff
+        ;;
+esac

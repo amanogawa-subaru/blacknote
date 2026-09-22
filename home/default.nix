@@ -22,6 +22,14 @@
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/nixos-profiles/blacknote/home/dots/waybar/style.css";
 
+    # Wofi configs
+    "wofi/config".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/nixos-profiles/blacknote/home/dots/wofi/config";
+
+    "wofi/style.css".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/nixos-profiles/blacknote/home/dots/wofi/style.css";
   };
 
    # Applications 
@@ -39,11 +47,12 @@
     systemd.enable = true;
   };
 
-  # themes that will be handled separately
+  # Themes that will be handled separately
   stylix.targets = {
     firefox.enable = false;
     librewolf.enable = false;
     sway.enable = false;
     waybar.enable = false;
+    wofi.enable = false;
   };
 }

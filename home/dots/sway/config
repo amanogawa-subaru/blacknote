@@ -11,6 +11,7 @@ set $mod Mod4
 set $term foot
 set $menu wofi --show drun
 set $sway_dir $HOME/nixos-profiles/blacknote/home/dots/sway
+set $scripts $HOME/nixos-profiles/blacknote/home/scripts
 
 # --- Appearance ---
 
@@ -125,5 +126,6 @@ bindgesture swipe:3:left workspace next
 bindgesture swipe:3:right workspace prev
 
 # Session controls
+bindsym $mod+Shift+p exec $scripts/blacknote-power
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+q exec uwsm stop

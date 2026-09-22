@@ -110,6 +110,6 @@
   "custom/power": {
     "format": "⏻",
     "tooltip": false,
-    "on-click": "blacknote-power"
+    "on-click": "$HOME/nixos-profiles/blacknote/home/scripts/blacknote-power"
   }
 }
