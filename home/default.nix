@@ -53,18 +53,54 @@
   };
 
   # Applications 
-  programs.foot = {
-    enable = true;
+  programs = {
+    foot = {
+      enable = true;
 
-    settings.main.include = 
-      "${config.home.homeDirectory}/nixos-profiles/blacknote/home/dots/foot/blacknote.ini";
+      settings.main.include = 
+        "${config.home.homeDirectory}/nixos-profiles/blacknote/home/dots/foot/blacknote.ini";
+    };
+
+    wofi.enable = true;
+
+    waybar = {
+      enable = true;
+      systemd.enable = true;
+    };
+
+    swaylock = {
+      enable = true;
+
+      settings = {
+        indicator-idle-visible = true;
+	indicator-radius = 60;
+	indicator-thickness = 4;
+      };
+    };
   };
 
-  programs.wofi.enable = true;
-
-  programs.waybar = {
+  services.swayidle = {
     enable = true;
-    systemd.enable = true;
+
+    systemdTargets = [ "graphical-session.target" ];
+
+    timeouts = [
+      {
+        timeout = 300;
+	command = "${pkgs.swaylock}/bin/swaylock -f";
+      }
+
+      {
+        timeout = 600;
+	command = "${pkgs.sway}/bin/swaymsg 'output * power off'";
+	resumeCommand = "${pkgs.sway}/bin/swaymsg 'output * power on'";
+      }
+    ];
+
+    events = {
+      "before-sleep" = "${pkgs.swaylock}/bin/swaylock -f";
+      "lock" = "${pkgs.swaylock}/bin/swaylock -f";
+    };
   };
 
   # Themes that will be handled separately
