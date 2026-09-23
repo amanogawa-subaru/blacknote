@@ -75,10 +75,6 @@ floating_modifier $mod normal
 # Toggle split orientation
 bindsym $mod+o layout toggle split
 
-# Floating apps
-for_window [app_id="imv"] floating enable, move position center
-for_window [title="^Authentication Required$"] floating enable, move position center
-for_window [app_id=".bulky-wrapped"] floating enable, move position center
 # Resize mode
 set $resize_mode "resize"
 bindsym $mod+r mode $resize_mode
@@ -132,3 +128,13 @@ input type:touchpad {
 
 bindgesture swipe:3:left workspace next
 bindgesture swipe:3:right workspace prev
+
+# --- Window rules ---
+
+# Floating apps
+for_window [app_id="imv"] floating enable, move position center
+for_window [title="^Authentication Required$"] floating enable, move position center
+for_window [app_id=".bulky-wrapped"] floating enable, move position center
+
+# Inhibit idle for Steam games
+for_window [class="steam_app*"] inhibit_idle focus
