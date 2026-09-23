@@ -115,9 +115,15 @@ in
       rm -f "$target"
       cp ${firefoxColorStorage} "$target"
     '';
-  
+ 
+  # Gruvbox Plus Dark icons
   gtk.iconTheme = {
-    name = "Adwaita";
-    package = pkgs.adwaita-icon-theme;
+    name = "Gruvbox-Plus-Dark";
+    package = pkgs.gruvbox-plus-icons;
   };
+
+  # Fallback icons if Gruvbox Plus Dark doesn't supply it
+  home.packages = [
+    pkgs.adwaita-icon-theme
+  ];
 }
