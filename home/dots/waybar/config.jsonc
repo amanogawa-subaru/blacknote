@@ -103,12 +103,12 @@
   },
 
   "clock": {
-    "format": "{:%H:%M | %d %b}",
+    "format": "{:%a %H:%M | %d %b}",
     "tooltip-format": "{:%Y-%m-%d}"
   },
 
   "custom/power": {
-    "format": "⏻",
+    "format": "⏻ ",
     "tooltip": false,
     "on-click": "$HOME/nixos-profiles/blacknote/home/scripts/blacknote-power"
   }
