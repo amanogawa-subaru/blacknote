@@ -115,4 +115,9 @@ in
       rm -f "$target"
       cp ${firefoxColorStorage} "$target"
     '';
+  
+  gtk.iconTheme = {
+    name = "Adwaita";
+    package = pkgs.adwaita-icon-theme;
+  };
 }
