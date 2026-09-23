@@ -25,6 +25,9 @@
     "waybar/style.css".source = 
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/nixos-profiles/blacknote/home/dots/waybar/style.css";
+    
+    # Foot colors
+    "foot/colors.ini".source = ./dots/foot/colors.ini;
 
     # Wofi configs
     "wofi/config".source =
@@ -58,13 +61,6 @@
 
   # Applications 
   programs = {
-    foot = {
-      enable = true;
-
-      settings.main.include = 
-        "${config.home.homeDirectory}/nixos-profiles/blacknote/home/dots/foot/blacknote.ini";
-    };
-
     wofi.enable = true;
 
     waybar = {

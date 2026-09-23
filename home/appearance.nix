@@ -82,6 +82,7 @@ in
     sway.enable = false;
     waybar.enable = false;
     wofi.enable = false;
+    foot.enable = false;
   };
 
   # Firefox Color
