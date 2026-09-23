@@ -9,9 +9,14 @@ exec uwsm finalize SWAYSOCK
 # --- Set variables ---
 set $mod Mod4
 set $term foot
-set $menu wofi --show drun
+set $menu $scripts/blacknote-wofi drun --show drun
 set $sway_dir $HOME/nixos-profiles/blacknote/home/dots/sway
 set $scripts $HOME/nixos-profiles/blacknote/home/scripts
+
+# --- Session controls ---
+bindsym $mod+Shift+p exec $scripts/blacknote-power
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+q exec uwsm stop
 
 # --- Appearance ---
 
@@ -52,6 +57,8 @@ output * bg $sway_dir/wallpapers/gruvbox_grid.png fill
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+b exec librewolf
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+e exec nemo
 
 # --- Window manipulation ---
 bindsym $mod+q kill
@@ -97,7 +104,7 @@ bindsym $mod+Shift+j mark --add "_swap", focus down, swap container with mark "_
 bindsym $mod+Shift+k mark --add "_swap", focus up, swap container with mark "_swap", focus up, unmark "_swap"
 bindsym $mod+Shift+l mark --add "_swap", focus right, swap container with mark "_swap", focus right, unmark "_swap"
 
-# Workspaces
+# --- Workspaces ---
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -116,7 +123,7 @@ bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
 
-# Touchpad gestures
+# --- Touchpad gestures ---
 input type:touchpad {
     natural_scroll enabled
     tap enabled
@@ -125,8 +132,3 @@ input type:touchpad {
 
 bindgesture swipe:3:left workspace next
 bindgesture swipe:3:right workspace prev
-
-# Session controls
-bindsym $mod+Shift+p exec $scripts/blacknote-power
-bindsym $mod+Shift+r reload
-bindsym $mod+Shift+q exec uwsm stop
