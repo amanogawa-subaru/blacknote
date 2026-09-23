@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+
+menu="$1"
+shift
+
+runtime="${XDG_RUNTIME_DIR:?}/blacknote"
+state="$runtime/wofi.state"
+lock="$runtime/wofi.lock"
+
+mkdir -p "$runtime"
+
+# Serialize menu transitions so rapid keypresses
+# cannot start two Wofi instances simultaneously.
+exec 9>"$lock"
+flock 9
+
+previous_menu=""
+previous_pid=""
+
+if [[ -f "$state" ]]; then
+    read -r previous_menu previous_pid < "$state"
+fi
+
+same_menu=false
+
+if [[ "$previous_pid" =~ ^[0-9]+$ ]] &&
+   kill -0 "$previous_pid" 2>/dev/null; then
+
+    if [[ "$previous_menu" == "$menu" ]]; then
+        same_menu=true
+    fi
+
+    kill "$previous_pid" 2>/dev/null || true
+fi
+
+# Close any remaining Wofi instances owned by this user.
+pkill -x -u "$(id -u)" wofi 2>/dev/null || true
+
+# Pressing the same menu binding toggles it closed.
+if [[ "$same_menu" == true ]]; then
+    rm -f "$state"
+    flock -u 9
+    exit 0
+fi
+
+# Otherwise, open the requested menu.
+wofi "$@" <&0 &
+pid=$!
+
+printf '%s %s\n' "$menu" "$pid" > "$state"
+
+flock -u 9
+
+wait "$pid"
+status=$?
+
+# Only clean up if we're still the active menu.
+# A newer invocation may already have replaced us.
+flock 9
+
+if [[ -f "$state" ]]; then
+    read -r current_menu current_pid < "$state"
+
+    if [[ "$current_pid" == "$pid" ]]; then
+        rm -f "$state"
+    fi
+fi
+
+flock -u 9
+
+exit "$status"

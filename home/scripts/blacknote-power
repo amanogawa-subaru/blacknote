@@ -13,8 +13,8 @@ choice="$(
         "$logout" \
         "$reboot" \
         "$poweroff" |
-        wofi --dmenu --prompt "Power"
-)"
+        "$HOME/nixos-profiles/blacknote/home/scripts/blacknote-wofi" power --dmenu --prompt "Power"
+)" || exit 0
 
 case "$choice" in
     "$lock")
