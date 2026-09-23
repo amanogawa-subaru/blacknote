@@ -51,7 +51,7 @@ gaps inner 10
 gaps outer 5
 
 # Set wallpaper
-output * bg $sway_dir/wallpapers/gruvbox_grid.png fill
+output * bg $sway_dir/wallpapers/current fill
 
 # --- Launchers ---
 bindsym $mod+Return exec $term
