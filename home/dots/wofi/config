@@ -1,5 +1,6 @@
 width=500
-height=350
+lines=8
+dynamic_lines=true
 location=center
 prompt=Search
 allow_markup=true
