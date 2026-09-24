@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Print out available outputs, only display 2nd field,
+# save selection to "choice"
+choice="$(
+  pactl list short sinks | 
+  cut -f2 |
+  # Run blacknote-wofi script
+  "$HOME/nixos-profiles/blacknote/home/scripts/blacknote-wofi" \
+  audio --dmenu --prompt "Audio output"	
+)"
+
+# If choice string length is 0, ie if ESC is pressed, exit
+if [[ -z "$choice" ]]; then
+  exit 0
+fi
+
+# Otherwise set default output to "choice" 
+pactl set-default-sink "$choice"

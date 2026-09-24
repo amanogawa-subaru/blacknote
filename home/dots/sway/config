@@ -14,7 +14,6 @@ set $sway_dir $HOME/nixos-profiles/blacknote/home/dots/sway
 set $scripts $HOME/nixos-profiles/blacknote/home/scripts
 
 # --- Session controls ---
-bindsym $mod+Shift+p exec $scripts/blacknote-power
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+q exec uwsm stop
 
@@ -57,8 +56,12 @@ output * bg $sway_dir/wallpapers/current fill
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+b exec librewolf
-bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+e exec nemo
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
+
+# Scripts
+bindsym $mod+Shift+p exec $scripts/blacknote-power
+bindsym $mod+a exec $scripts/blacknote-audio
 
 # --- Window manipulation ---
 bindsym $mod+q kill
