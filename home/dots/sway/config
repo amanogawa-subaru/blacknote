@@ -138,6 +138,7 @@ bindgesture swipe:3:right workspace prev
 for_window [app_id="imv"] floating enable, move position center
 for_window [title="^Authentication Required$"] floating enable, move position center
 for_window [app_id=".bulky-wrapped"] floating enable, move position center
+for_window [class="^steam$" title="^Friends List$"] floating enable
 
 # Inhibit idle for Steam games
 for_window [class="steam_app*"] inhibit_idle focus
