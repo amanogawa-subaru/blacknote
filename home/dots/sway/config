@@ -5,6 +5,7 @@ include /etc/sway/config.d/*
 
 # --- UWSM session initialization ---
 exec uwsm finalize SWAYSOCK
+output * adaptive_sync on
 
 # --- Set variables ---
 set $mod Mod4
