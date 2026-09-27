@@ -15,25 +15,41 @@
             "key": " KER ",
             "keyColor": "yellow"
         },
+	{
+	    "type": "cpu",
+	    "key": " CPU ",
+	    "keyColor": "blue"
+	},
+	{
+	    "type": "gpu",
+	    "key": " GPU ",
+	    "hideType": "integrated",
+	    "keyColor": "blue"
+	},
+	{
+	    "type": "memory",
+	    "key": " MEM ",
+	    "keyColor": "blue"
+	},
         {
             "type": "packages",
             "key": " PKG ",
-            "keyColor": "green"  
+            "keyColor": "magenta"  
         },
         {
             "type": "shell",
             "key": " SH  ",
-            "keyColor": "green" 
+            "keyColor": "magenta" 
         },
         {
             "type": "terminal",
             "key": " TER ",
-            "keyColor": "blue" 
+            "keyColor": "cyan" 
         },
         {
             "type": "wm",
             "key": " WM  ",
-            "keyColor": "blue" 
+            "keyColor": "cyan" 
         },
 	{
 	"type": "custom",
