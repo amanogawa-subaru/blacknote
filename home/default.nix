@@ -107,4 +107,18 @@
       "lock" = "${pkgs.swaylock}/bin/swaylock -f";
     };
   };
+  
+  # Mako notification daemon
+  services.mako = {
+    enable = true;
+
+    settings = {
+      anchor = "top-right";
+      margin = "15,15,0,0";
+
+      width = 300;
+      padding = 10;
+      border-size = 2;
+    };
+  };
 }
