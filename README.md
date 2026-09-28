@@ -21,7 +21,7 @@ cd ~/nixos-profiles/blacknote/home/dots/sway/wallpapers
 # Change symlink
 ln -sf <wallpaper-name> current
 ```
-And apply the new wallpaper by reloading sway with `meta+Shift+R`
+And apply the new wallpaper by reloading sway with `Super+Shift+R`
 
 The `current` symlink is gitignored by default so that wallpaper changes are not tracked by git.
 Therefore, after first install, you have to create the symlink first in order to have a wallpaper (or don't if you don't want one).
