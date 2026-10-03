@@ -39,9 +39,9 @@
         "${config.home.homeDirectory}/nixos-profiles/blacknote/home/dots/wofi/style.css";
 
     # Fastfetch configs
-    "fastfetch/config.jsonc".source = 
+    "fastfetch".source = 
       config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/nixos-profiles/blacknote/home/dots/fastfetch/config.jsonc";
+        "${config.home.homeDirectory}/nixos-profiles/blacknote/home/dots/fastfetch";
   };
 
   # Graphical Polkit authentication agent
